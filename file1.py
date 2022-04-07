@@ -5,7 +5,8 @@ import sqlite3
 import json
 import os
 
-print('test')
+print('test2')
+print('test2')
 def setUpDatabase(db_name):
 
     path = os.path.dirname(os.path.abspath(__file__))
