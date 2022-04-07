@@ -7,6 +7,7 @@ import os
 
 print('test2')
 print('test2')
+print('test3')
 def setUpDatabase(db_name):
 
     path = os.path.dirname(os.path.abspath(__file__))
@@ -17,20 +18,14 @@ def setUpDatabase(db_name):
 def bs2():
 
     foods = []
-    resp = requests.get("https://www.mcdonalds.com/us/en-us/full-menu.html")
+    resp = requests.get("https://www.target.com/s?searchTerm=ice+cream")
     soup = BeautifulSoup(resp.content, "html.parser")
-    lst = soup.find_all("div", class_ = "cmp-category__item-name")
-    for item in lst:
-        if item.text.isalnum():
-            food=item.text
-        else:
-            s = ""
-            for ch in item.text:
-                if ch.isalnum() or ch == " ":
-                    s += ch 
-            food  = s
-        print(food)
-        foods.append(food)
+    lst = soup.find_all("a", {'date-test': "product-title"})
+    print(lst)
+    # for item in lst:
+    #     print(item.text)
+    
+
     return foods
 
 # def bs2():
